@@ -1,8 +1,8 @@
 # restAPI
 Needed steps to run on localhost:<br>
 1)install and configure mariadb.<br>
-2)create database empty database in mariadb.<br>
-3)Edit .env file - set parameters accordingly to things you created:<br>
+2)create  empty database in mariadb.<br>
+3)Edit .env.example file - set parameters accordingly to things you created:<br>
       {<br>
         DB_DATABASE=<br>
         DB_USERNAME=<br>
