@@ -22,7 +22,13 @@
             table.center {
              margin-left: auto;
               margin-right: auto;
+
                 }
+                table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
 
             .full-height {
                 height: 100vh;
@@ -64,6 +70,7 @@
 
             .m-b-md {
                 margin-bottom: 30px;
+        
             }
         </style>
     </head>
@@ -77,18 +84,22 @@
                     <a href="/movies/search">Search Database</a>
                     <a href="https://github.com/GPS1103">GitHub</a>
 </div>
-    <table class="center">
+    <table class="center" style="border: 1px solid black;">
+    <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Country of Origin</th>
+      <th scope="col">Cover</th>
+      <th scope="col">Type</th>
+      
+    </tr>
 	<tbody>
-		<tr>
-			<td> Title</td>
-			<td> Description</td>
-			<td> Country of Origin</td>
-			<td> Cover</td>
-			<td> Type</td>
-		</tr>
+	
       
         @foreach($movies as $key=>$data)
        <tr> 
+           
 			<td> {{$data->title}}</td>
 			<td> {{$data->description}}</td>
 			<td> {{$data->country}}</td>

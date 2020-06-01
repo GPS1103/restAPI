@@ -23,6 +23,11 @@
              margin-left: auto;
               margin-right: auto;
                 }
+                table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
 
             .full-height {
                 height: 100vh;
