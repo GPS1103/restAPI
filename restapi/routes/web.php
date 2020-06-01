@@ -23,3 +23,6 @@ Route::get('/movies/edit/search', 'MovieController@check')->name('movies.check')
 Route::get('/movies/edit/result', 'MovieController@find')->name('movies.find');
 Route::get('/movies/{Movie}/edit', 'MovieController@edit')->name('movies.edit');
 Route::patch('/movies/{Movie}','MovieController@update')->name('movies.update');
+Route::get('/movies/delete/list', 'MovieController@delete')->name('movies.delete');
+Route::get('/movies/delete/{Movie}', 'MovieController@sure')->name('movies.sure');
+Route::delete('/movies/{Movie}','MovieController@destroy')->name('movies.destroy');

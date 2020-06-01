@@ -77,7 +77,6 @@
                     <a href="/movies/search">Search Database</a>
                     <a href="https://github.com/GPS1103">GitHub</a>
 </div>
-       
     <table class="center">
 	<tbody>
 		<tr>
@@ -87,7 +86,7 @@
 			<td> Cover</td>
 			<td> Type</td>
 		</tr>
-            
+      
         @foreach($movies as $key=>$data)
        <tr> 
 			<td> {{$data->title}}</td>
@@ -99,6 +98,17 @@
             @foreach($data->movietypes as $key2=>$types)
             {{$types->type}}<br>
             @endforeach</td>
+            <td>      
+                       
+                    <form action="/movies/delete/{{$data->id}}"  method="get">
+                        @csrf                                          
+                        <div class="form-group row" style="padding-top: 3vh; text-align: center">
+                        <input id="title" type="hidden" class="form-control @error('id') is-invalid @enderror" name="title" value="{{$data->title}}" >
+                        <input id="id" type="hidden" class="form-control @error('id') is-invalid @enderror" name="id" value="{{$data->id}}" >
+                        <button class="btn btn-primary">Delete</button>
+                        </div>
+                        </form>
+                        </td>
 		</tr>
       
         @endforeach

@@ -18,7 +18,7 @@ class Movietypes extends Migration
             $table->string('type')->nullable();
             $table->unsignedBigInteger('movie_id');
             $table->timestamps();
-            $table->index('movie_id');
+            $table->index('movie_id')->onDelete('cascade');
         });
     }
 

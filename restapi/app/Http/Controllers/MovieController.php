@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class MovieController extends Controller
@@ -154,5 +155,29 @@ class MovieController extends Controller
 
            
             return redirect('/');
+    }
+    public function delete()
+    {
+        $movies=Movie::all();
+        return view('delete_list',
+      [
+          'movies'=>$movies,
+      
+      ]);
+    }
+    public function sure(Request $request)
+    {
+        $id=$request->input('id');
+        $title=$request->input('title');
+    
+        return view('sure',['id'=>$id, 'title'=>$title,]);
+    }
+    public function destroy(Request $request)
+    {
+        $id=$request->input('id');
+       Movie::where('id',$id)->delete();
+       \App\Movietype::where('movie_id',$id)->delete();
+    return redirect("/movies/delete/list");
+        
     }
 }

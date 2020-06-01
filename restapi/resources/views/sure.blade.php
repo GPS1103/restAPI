@@ -49,7 +49,9 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 5vh;
+                text-align: center;
+                padding-top: 10vh;
             }
 
             .links > a {
@@ -77,33 +79,21 @@
                     <a href="/movies/search">Search Database</a>
                     <a href="https://github.com/GPS1103">GitHub</a>
 </div>
-       
-    <table class="center">
-	<tbody>
-		<tr>
-			<td> Title</td>
-			<td> Description</td>
-			<td> Country of Origin</td>
-			<td> Cover</td>
-			<td> Type</td>
-		</tr>
-            
-        @foreach($movies as $key=>$data)
-       <tr> 
-			<td> {{$data->title}}</td>
-			<td> {{$data->description}}</td>
-			<td> {{$data->country}}</td>
-			<td> <img src="/storage/{{$data->cover}}"></td>
-            
-			<td> 
-            @foreach($data->movietypes as $key2=>$types)
-            {{$types->type}}<br>
-            @endforeach</td>
-		</tr>
-      
-        @endforeach
-	</tbody>
-</table>
-
+            <div class="title m-b-md">
+            Are you sure you want to delete "{{$title}}" from your database
+            </div>
+            <div class="container">
+                <form action="/movies/{{$id}}"  method="post">
+                        @csrf 
+                        @method('DELETE')                                         
+                        <div class="form-group row" style="padding-top: 3vh; text-align: center">
+                        <input id="id" type="hidden" class="form-control @error('id') is-invalid @enderror" name="id" value="{{$id}}" >
+                        <button class="btn btn-primary">Yes</button>
+                        </div>         
+                        </form>
+                        <div class="form-group row" style="padding-top: 3vh; text-align: center">
+                        <a href="/movies/delete/list"> <button class="btn btn-primary">No</button></a>
+                        </div>
+             </div>
     </body>
 </html>
