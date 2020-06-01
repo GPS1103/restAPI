@@ -14,4 +14,4 @@ php artisan migrate<br>
 php artisan storage:link<br>
 php artisan serve<br>
 6) Go to your browser localhost:8000 and start using it:)<br>
-
+Tested on Manjaro linux with mariaDB
