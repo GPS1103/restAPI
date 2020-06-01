@@ -75,13 +75,14 @@
                 </div>
                 <div class="container">
 
-                    <form action="/movies" enctype="multipart/form-data" method="post">
+                    <form action="/movies/{{$movies->id}}" enctype="multipart/form-data" method="post">
                         @csrf
+                        @method('PATCH')
                             <div class="form-group row" style="padding-top:10vh; text-align: center">
                             <label for="Title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
 
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value='' autocomplete="off" required autofocus>
+                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value='{{$movies->title}}' onfocus="this.value=''" autocomplete="off" required >
 
                                 @error('title')
                                     <span class="invalid-feedback" role="alert">
@@ -95,7 +96,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value='' autocomplete="off" autofocus>
+                                <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value='{{$movies->description}}' onfocus="this.value=''" autocomplete="off" >
 
                             
                             </div>
@@ -104,7 +105,7 @@
                             <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country of Origin') }}</label>
 
                             <div class="col-md-6">
-                                <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value='' autocomplete="off"  autofocus>
+                                <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value='{{$movies->country}}'onfocus="this.value=''" autocomplete="off"  >
 
                                 
                             </div>
@@ -113,7 +114,7 @@
                             <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type"value='' autocomplete="off"  autofocus>
+                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type"value='{{$fraze}}' autocomplete="off"  >
 
                                 @error('type')
                                     <div class="form-group row" role="alert" style="padding-top: 1vh">
@@ -126,7 +127,7 @@
                             <label for="cover" class="col-md-4 col-form-label text-md-right">{{ __('Cover') }}</label>
 
                             <div class="col-md-6">
-                                <input id="cover" type="file" class="form-control-file " name="cover" value='' required autocomplete="off" >
+                                <input id="cover" type="file" class="form-control-file " name="cover" value='' autocomplete="off" >
                                 @error('cover')
                                     <div class="form-group row" role="alert" style="padding-top: 1vh">
                                         <strong>{{ $message }}</strong>
@@ -135,7 +136,8 @@
                             </div>
                         </div>
                         <div class="form-group row" style="padding-top: 3vh; text-align: center">
-                        <button class="btn btn-primary">Add New Record</button>
+                        <input id="id" type="hidden" class="form-control @error('id') is-invalid @enderror" name="id" value="{{$movies->id}}" >
+                        <button class="btn btn-primary">Save changes</button>
                         </div>
                         </form>
                          </div>

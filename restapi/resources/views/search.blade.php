@@ -66,15 +66,16 @@
     <body>
                  <div class="links">
                     <a href="/">Home</a>
-                    <a href="/list">List Database</a>
-                    <a href="/add/create">Add Record</a>
-                    <a href="/delete">Delete Record</a>
-                    <a href="/update">Update Record</a>
+                    <a href="/movies">List Database</a>
+                    <a href="/movies/create">Add Record</a>
+                    <a href="/movies/delete">Delete Record</a>
+                    <a href="/movies/edit/search">Update Record</a>
+                    <a href="/movies/search">Search Database</a>
                     <a href="https://github.com/GPS1103">GitHub</a>
                 </div>
                 <div class="container">
 
-                    <form action="/search/result"  method="get">
+                    <form action="/movies/result"  method="get">
                         @csrf
                             <div class="form-group row" style="padding-top:10vh; text-align: center">
                             <label for="search" class="col-md-4 col-form-label text-md-right">{{ __('Search by Title') }}</label>

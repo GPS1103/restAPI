@@ -85,11 +85,11 @@
                 </div>
 
                 <div class="links">
-                    <a href="/list">List Database</a>
-                    <a href="/add/create">Add Record</a>
-                    <a href="/delete">Delete Record</a>
-                    <a href="/update">Update Record</a>
-                    <a href="/search">Search Database</a>
+                    <a href="/movies">List Database</a>
+                    <a href="/movies/create">Add Record</a>
+                    <a href="/movies/delete">Delete Record</a>
+                    <a href="/movies/edit/search">Update Record</a>
+                    <a href="/movies/search">Search Database</a>
                     <a href="https://github.com/GPS1103">GitHub</a>
                 </div>
             </div>

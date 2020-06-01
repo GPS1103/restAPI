@@ -33,3 +33,4 @@ class Movies extends Migration
         Schema::dropIfExists('movies');
     }
 }
+

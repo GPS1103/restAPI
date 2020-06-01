@@ -68,24 +68,53 @@
         </style>
     </head>
     <body>
-    <div class="content">
-                <div class="title m-b-md">
-             Unfortunately we didn't find anything to show here :(<br>
-                        Please try again.
-                </div>
-
-              <div class="links">
-              <a href="/">Home</a>
-              <a href="/movies">List Database</a>
+    <div class="links">
+                    <a href="/">Home</a>
+                    <a href="/movies">List Database</a>
                     <a href="/movies/create">Add Record</a>
                     <a href="/movies/delete">Delete Record</a>
                     <a href="/movies/edit/search">Update Record</a>
                     <a href="/movies/search">Search Database</a>
-                    <a href="https://github.com/GPS1103">GitHub</a>a>
-            </div>
-        </div>
-    
-        
+                    <a href="https://github.com/GPS1103">GitHub</a>
+</div>
        
+    <table class="center">
+	<tbody>
+		<tr>
+			<td> Title</td>
+			<td> Description</td>
+			<td> Country of Origin</td>
+			<td> Cover</td>
+			<td> Type</td>
+		</tr>
+            
+        @foreach($movies as $key=>$data)
+       <tr> 
+			<td> {{$data->title}}</td>
+			<td> {{$data->description}}</td>
+			<td> {{$data->country}}</td>
+			<td> <img src="/storage/{{$data->cover}}"></td>
+            
+			<td> 
+            @foreach($data->movietypes as $key2=>$types)
+            {{$types->type}}<br>
+            @endforeach</td>
+            <td>      
+                       
+                    <form action="/movies/{{$data->id}}/edit"  method="get">
+                        @csrf                                          
+                        <div class="form-group row" style="padding-top: 3vh; text-align: center">
+                        <input id="id" type="hidden" class="form-control @error('id') is-invalid @enderror" name="id" value="{{$data->id}}" >
+                        <button class="btn btn-primary">Edit</button>
+                        </div>
+                        </form>
+                        </td>
+                        
+		</tr>
+      
+        @endforeach
+	</tbody>
+</table>
+
     </body>
 </html>

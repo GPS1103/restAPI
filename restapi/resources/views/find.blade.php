@@ -19,10 +19,6 @@
                 height: 100vh;
                 margin: 0;
             }
-            table.center {
-             margin-left: auto;
-              margin-right: auto;
-                }
 
             .full-height {
                 height: 100vh;
@@ -68,24 +64,39 @@
         </style>
     </head>
     <body>
-    <div class="content">
-                <div class="title m-b-md">
-             Unfortunately we didn't find anything to show here :(<br>
-                        Please try again.
-                </div>
-
-              <div class="links">
-              <a href="/">Home</a>
-              <a href="/movies">List Database</a>
+                 <div class="links">
+                    <a href="/">Home</a>
+                    <a href="/movies">List Database</a>
                     <a href="/movies/create">Add Record</a>
                     <a href="/movies/delete">Delete Record</a>
                     <a href="/movies/edit/search">Update Record</a>
                     <a href="/movies/search">Search Database</a>
-                    <a href="https://github.com/GPS1103">GitHub</a>a>
-            </div>
-        </div>
-    
-        
-       
+                    <a href="https://github.com/GPS1103">GitHub</a>
+                </div>
+                <div class="container">
+
+                    <form action="/movies/edit/result"  method="get">
+                        @csrf
+                            <div class="form-group row" style="padding-top:10vh; text-align: center">
+                            <label for="search" class="col-md-4 col-form-label text-md-right">{{ __('Search by Title') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="search" type="text" class="form-control @error('search') is-invalid @enderror" name="search" value='' autocomplete="off" required autofocus>
+
+                                @error('search')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                     
+                        <div class="form-group row" style="padding-top: 3vh; text-align: center">
+                        <button class="btn btn-primary">Search</button>
+                        </div>
+                        </form>
+                </div>
+
     </body>
 </html>
