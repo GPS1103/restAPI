@@ -17,7 +17,7 @@ class MovieTypeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->randomElement(['Horror', 'Drama', 'Sci-Fi', 'Action'])
         ];
     }
 }
